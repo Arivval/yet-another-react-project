@@ -1,0 +1,34 @@
+.PostViewLandscapeContainer {
+    background-color: #ffffff;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    max-width: 900px;
+    border: 1px solid #dbdbdb;
+    height: 624px;
+
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.PostViewLandscapeRightSideView {
+    display: flex;
+    flex-direction: column;
+    width: 335px;
+    height: auto;
+}
+
+.PostViewLandscapeRightBottomView {
+    flex-grow: -1;
+    margin-top: auto;
+}
+
+.PostViewRightSideOverflow {
+    display: block;
+    padding-top: 16px;
+    padding-bottom: 12px;
+    overflow-y: auto;
+}
+
+.PostViewRightSideOverflow::-webkit-scrollbar {
+    display: none;
+  }

@@ -1,0 +1,17 @@
+.PostLikeCountViewContainer {
+    height: 18px;
+    padding: 0px 16px;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 4px;
+}
+
+.PostLikeCountButton {
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    color: #262626;
+    display: inline;
+
+}

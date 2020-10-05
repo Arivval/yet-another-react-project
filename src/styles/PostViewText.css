@@ -1,0 +1,40 @@
+.PostViewText {
+    font: inherit;
+    font-size: 14px;
+    color: #262626;
+  
+    word-break: break-word;
+
+}
+
+.PostViewTextOuterContainer {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.PostViewLikeContainer {
+    margin-left: auto;
+}
+
+.PostViewTextContainer {
+    display: block;
+    flex-grow: 1;
+}
+
+
+.PostViewTextContainerInline {
+    display: inline-block;
+    line-height: 14px;
+    margin: 0px 0px;
+}
+
+.CommentLikeButtonImage {
+    height: 12px;
+    width: 12px;
+    margin-left: 4px;
+}
+
+.PosterID {
+    margin-right: 4px;
+}

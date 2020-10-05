@@ -1,0 +1,10 @@
+.PostPotraitCommentContainter {
+    margin: 0px 16px;
+}
+
+.ViewAllCommentsButton {
+    color: #9a9a9a;
+    font-size: 14px;
+    font-weight: 450;
+    margin-bottom: 4px;
+}

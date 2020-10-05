@@ -1,0 +1,40 @@
+.PostTitleViewContainer {
+    height: 60px;
+    width: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding-left: 16px;
+    border-bottom: 1px solid #efefef;
+}
+
+.PostTitleProfilePictureView {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    border: 1px solid #dbdbdb;
+}
+
+.PostTitleUserID {
+    margin-left: 14px;
+}
+
+.PostTitleUserID:hover {
+    text-decoration: underline;
+}
+
+.PostTitleOptionButton {
+    height: 40px;
+    width: 40px;
+    margin-left: auto;
+    margin-right: 3px;
+    text-align: center;
+}
+
+.PostTitleOptionButtonText {
+    color: #252525;
+    font-size: 7px;
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+}

@@ -1,0 +1,12 @@
+.PostTimeView {
+    margin: 0px 16px;
+    font-size: 10px;
+    color: #8e8e8e;
+}
+
+.PostTimeViewLabel {
+    margin-top: 6px;
+    margin-bottom: 4px;
+    display: inline-block;
+    cursor: pointer;
+}

@@ -1,0 +1,22 @@
+.PostImageViewContainer {
+    border: 1px #dbdbdb;
+    height: auto;
+    cursor: pointer;
+}
+
+.PostImageViewContainerLandscape {
+    height: auto;
+    cursor: pointer;
+}
+
+
+.PostImagePotrait {
+    width: 100%;
+    display: block;
+}
+
+
+.PostImageLandscape {
+    height: auto;
+    width: 500px;
+}

@@ -1,0 +1,26 @@
+.PostActionViewContainer {
+    height: 40px;
+    width: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    /* margin-top: 4px; */
+    padding-top: 4px;
+    padding-left: 8px;
+    padding-right: 16px;
+    border-top: 1px solid #efefef;
+}
+
+.ActionButtonDiv {
+    padding: 8px;
+}
+
+.BookmarkButtonDiv {
+    margin-left: auto;
+}
+
+.ActionButtonImage {
+    height: 24px;
+    width: 24px;
+    display: block;
+}

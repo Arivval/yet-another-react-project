@@ -1,0 +1,55 @@
+.PostTextAreaView {
+    padding: 0px 16px;
+    border-top: 1px solid #efefef;
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-height: 108px;
+    min-height: 56px;
+}
+
+.PostTextAreaForm {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+
+.PostTextArea {
+    flex-grow: 1;
+    height: 18px;
+
+    font: inherit;
+    font-size: 14px;
+
+    line-height: 18px;
+
+    border: none;
+    overflow: auto;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none; 
+    max-height: 100px;
+
+    margin-right: 8px;
+}
+
+.PostTextAreaPostButtonDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.PostTextAreaPostButtonDisable {
+    margin-left: auto;
+    color: #0094f670;
+}
+
+.PostTextAreaPostButtonEnable {
+    margin-left: auto;
+    color: #0094f6;
+
+}
