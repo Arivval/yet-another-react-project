@@ -1,19 +1,21 @@
 import React from 'react';
 import '../styles/PostCommentActionView.css';
+import {setTextAreaState} from '../actions/textAreaStateAction';
 
-const PostCommentActionView = (key, val, replyAction, idx, replyAtID=null) => {
+
+const PostCommentActionView = (key, val, setTextAreaState, idx, replyAtString=null) => {
     return(<div className="CommentActionView" key={idx}> 
         { val.likeCount === 0 ? null :
         <div className="CommentActionButton Button">
-            {val.likeCount.toString() + (val.likeCount === 1 ? ' like' : 'likes')}
+            {val.likeCount.toString() + (val.likeCount === 1 ? ' like' : ' likes')}
         </div>
         }
         {
-            replyAtID ? 
-            <div className="CommentActionButton Button" onClick={()=>{replyAction(key, replyAtID)}}>
+            replyAtString ? 
+            <div className="CommentActionButton Button" onClick={()=>{setTextAreaState(key, replyAtString)}}>
             Reply
             </div> :
-            <div className="CommentActionButton Button" onClick={()=>{replyAction(key, val.userID)}}>
+            <div className="CommentActionButton Button" onClick={()=>{setTextAreaState(key, val.userID)}}>
             Reply
             </div> 
         }

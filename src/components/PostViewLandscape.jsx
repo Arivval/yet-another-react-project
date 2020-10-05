@@ -11,16 +11,6 @@ import PostTimeView from './PostTimeView';
 import PostTextAreaView from './PostTextAreaView';
 
 class PostViewLandscape extends Component {
-    constructor(props) {
-        super(props);
-        this.routeReplyToEvent = this.routeReplyToEvent.bind(this);
-    }
-
-    routeReplyToEvent(replyCommentID, atString) {
-        if (this.childRef) {
-            this.childRef.setReplyContext(replyCommentID, atString);
-        }
-    }
 
     render() {
         return (
@@ -31,13 +21,13 @@ class PostViewLandscape extends Component {
                     </div>
                     <div className="PostViewRightSideOverflow">
                         <PostDescriptionView/>
-                        <PostLandscapeCommentContainer replyAction={this.routeReplyToEvent}/>
+                        <PostLandscapeCommentContainer/>
                     </div>
                     <div className="PostViewLandscapeRightBottomView">
                         <PostActionView/>
                         <PostLikeCountView/>
                         <PostTimeView/>
-                        <PostTextAreaView getChildRef={(childRef) => { this.childRef = childRef}}/>
+                        <PostTextAreaView/>
                     </div>
                 </div>
                 <PostImageViewLandscape/>

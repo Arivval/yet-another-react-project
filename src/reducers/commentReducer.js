@@ -2,7 +2,7 @@ import {ADD_COMMENT, DEL_COMMENT, TOGGLE_LIKE_COMMENT} from '../actions/commentA
 import {ADD_REPLY, DEL_REPLY, TOGGLE_LIKE_REPLY} from '../actions/replyActions';
 import { nanoid } from 'nanoid';
 
-const initState = {comments: {}};
+const initState = {};
 
 function commentReducer(state=initState, action) {
     switch(action.type) {
@@ -15,21 +15,21 @@ function commentReducer(state=initState, action) {
                 likeCount: 0,
                 replies: {}
             }
-            const addCommentState = {...state, comments: {...state.comments}};
+            const addCommentState = {...state};
             const commentID = nanoid();
-            addCommentState.comments[commentID] = newComment;
+            addCommentState[commentID] = newComment;
             return addCommentState
         case DEL_COMMENT:
             if (action.commentID in action) {
-                const newState = {...state, comments: {...state.comments}};
-                delete newState.comments[action.commentID];
+                const newState = {...state};
+                delete newState[action.commentID];
                 return newState;
             }
             return state;
         case TOGGLE_LIKE_COMMENT:
-            if (action.commentID in state.comments) {
-                const newState = {...state, comments: {...state.comments}};
-                const commentObj = newState.comments[action.commentID]
+            if (action.commentID in state) {
+                const newState = {...state};
+                const commentObj = newState[action.commentID]
                 commentObj.liked = !commentObj.liked;
                 commentObj.liked ? commentObj.likeCount += 1 : commentObj.likeCount -= 1;
                 return newState;
@@ -46,19 +46,19 @@ function commentReducer(state=initState, action) {
             }
             const addReplyState = JSON.parse(JSON.stringify(state));
             const replyID = nanoid();
-            addReplyState.comments[action.commentID].replies[replyID] = newReply;
+            addReplyState[action.commentID].replies[replyID] = newReply;
             return addReplyState
         case DEL_REPLY:
-            if (action.commentID in state.comments && action.replyID in state.comments[action.commentID].replies) {
+            if (action.commentID in state && action.replyID in state[action.commentID].replies) {
                 const newState = JSON.parse(JSON.stringify(state));
-                delete newState.comments[action.commentID].replies[action.replyID];
+                delete newState[action.commentID].replies[action.replyID];
                 return newState;
             }
             return state;        
         case TOGGLE_LIKE_REPLY:
-            if (action.commentID in state.comments && action.replyID in state.comments[action.commentID].replies) {
+            if (action.commentID in state && action.replyID in state[action.commentID].replies) {
                 const newState = JSON.parse(JSON.stringify(state));
-                const commentObj = newState.comments[action.commentID];
+                const commentObj = newState[action.commentID];
                 const replyObj = commentObj.replies[action.replyID];
                 replyObj.liked = !replyObj.liked;
                 replyObj.liked ? replyObj.likeCount += 1 : replyObj.likeCount -= 1;

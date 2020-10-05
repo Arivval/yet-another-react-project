@@ -3,11 +3,25 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import commentReducer from './reducers/commentReducer';
+import textAreaStateReducer from './reducers/TextAreaStateReducer';
+import { loadFromStore, writeToStore } from './scripts/localStore';
 
-const store = createStore(commentReducer);
+const rootReducer = combineReducers({comments: commentReducer, textAreaState: textAreaStateReducer})
+
+const prevState = loadFromStore();
+let store = null;
+if (prevState) {
+  store = createStore(rootReducer, prevState);
+} else {
+  store = createStore(rootReducer);
+}
+
+store.subscribe(() => {
+  writeToStore(store.getState());
+});
 
 ReactDOM.render(
   <Provider store={store}>

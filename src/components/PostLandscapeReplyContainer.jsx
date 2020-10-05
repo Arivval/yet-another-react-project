@@ -4,6 +4,7 @@ import '../styles/PostLandscapeReplyContainer.css';
 import PostViewText from './PostViewText';
 import {connect} from 'react-redux';
 import {toggleLikeReply} from '../actions/replyActions';
+import {setTextAreaState} from '../actions/textAreaStateAction';
 import PostCommentActionView from './PostCommentActionView';
 
 class PostLandscapeReplyContainer extends Component {
@@ -19,7 +20,7 @@ class PostLandscapeReplyContainer extends Component {
                                 const secondIdx = idx * 2 + 1;
                                 return [
                                     PostViewText(true, this.props.toggleLikeReply, val.commentID, val, firstIdx, key),
-                                    PostCommentActionView(val.commentID, val, this.props.replyAction, secondIdx)
+                                    PostCommentActionView(val.commentID, val, this.props.setTextAreaState, secondIdx)
                                 ];
                             })
                     }
@@ -34,4 +35,4 @@ const mapStateToProps = state => {
     return {comments: state.comments};
 }
 
-export default connect(mapStateToProps, {toggleLikeReply})(PostLandscapeReplyContainer);
+export default connect(mapStateToProps, {toggleLikeReply, setTextAreaState})(PostLandscapeReplyContainer);

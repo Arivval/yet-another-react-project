@@ -3,7 +3,9 @@ import '../styles/PostTextAreaView.css';
 import {connect} from 'react-redux';
 import {addComment} from '../actions/commentActions';
 import {addReply} from '../actions/replyActions'
+import {setTextAreaState} from '../actions/textAreaStateAction';
 import TextareaAutosize from 'react-autosize-textarea';
+import {setMockState} from '../scripts/localStore';
 
 const ENTER_KEY_CODE = 13;
 
@@ -24,16 +26,6 @@ class PostTextAreaView extends Component {
         this.onKeyUp = this.onKeyUp.bind(this);
         this.onKeyDown = this.onKeyDown.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-        this.setReplyContext = this.setReplyContext.bind(this);
-    }
-
-    componentDidMount() {
-        // this.textArea = document.getElementById('textarea');
-        const {getChildRef} = this.props;
-        if (getChildRef) {
-            getChildRef(this);
-        }
-
     }
 
     focusOnTextArea() {
@@ -75,8 +67,11 @@ class PostTextAreaView extends Component {
     setReplyContext(replyCommentID, atString) {        
         this.setState({
             replyCommentID: replyCommentID,
-            textAreaText: '@' + atString + ' '
+            textAreaText: '@' + atString + ' ',
+            textAreaEmpty: false
         });
+        // clear state
+        this.props.setTextAreaState(null, null);
         this.focusOnTextArea();
     }
 
@@ -84,6 +79,13 @@ class PostTextAreaView extends Component {
         if (this.state.textAreaEmpty) {
             return;
         }
+        // handle cheat code for resetting local store
+        if (this.state.textAreaText === "!reset") {
+            setMockState();
+            this.setState({textAreaText: '', textAreaEmpty: true});
+            return;
+        }
+
         // can't submit one character of new line
         if (this.state.textAreaText !== '\n') {
             // action to reducer
@@ -109,6 +111,13 @@ class PostTextAreaView extends Component {
 
     render() {
         const buttonState = this.state.textAreaEmpty ? "PostTextAreaPostButtonDisable" : "PostTextAreaPostButtonEnable";
+        const textAreaReplyID = this.props.textAreaState.commentID;
+        const textAreaAtString = this.props.textAreaState.atString;
+        // if reply button is pressed, call helper on another thread
+        if (textAreaReplyID) {
+            setTimeout(()=>{this.setReplyContext(textAreaReplyID, textAreaAtString)}, 0);
+        }
+
         return (
             <section className="PostTextAreaView">
                 <form className="PostTextAreaForm">
@@ -137,7 +146,8 @@ class PostTextAreaView extends Component {
 const mapStateToProps = state => {
     return {
         comments: state.comments,
+        textAreaState: state.textAreaState
     };
 }
 
-export default connect(mapStateToProps, {addComment, addReply})(PostTextAreaView);
+export default connect(mapStateToProps, {addComment, addReply, setTextAreaState})(PostTextAreaView);

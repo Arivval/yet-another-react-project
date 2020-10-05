@@ -1,6 +1,7 @@
 import React from 'react';
 
 import '../styles/PostViewText.css';
+import PostTextSpan from './PostTextSpan';
 
 const PostViewText = (likable, toggleLike, commentID, commentObj, commentIdx, replyID=null) => {
     return (
@@ -10,9 +11,7 @@ const PostViewText = (likable, toggleLike, commentID, commentObj, commentIdx, re
                     <span className="PosterID UserID">
                         {commentObj.userID}
                     </span>
-                    <span className="PostViewText"> 
-                        {commentObj.comment} 
-                    </span>
+                    <PostTextSpan text={commentObj.comment}/>
                 </div>
             </div>
             <div className="PostViewLikeContainer">
