@@ -26,7 +26,6 @@ class PostLandscapeCommentContainer extends Component {
                                     <PostLandscapeReplyContainer 
                                         key={thirdIdx}
                                         replies={val.replies}
-                                        setTextAreaState={this.props.setTextAreaState}
                                         replyAtID={val.userID}/>
                                 ];
                             })

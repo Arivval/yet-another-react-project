@@ -1,7 +1,5 @@
 import React from 'react';
 import '../styles/PostCommentActionView.css';
-import {setTextAreaState} from '../actions/textAreaStateAction';
-
 
 const PostCommentActionView = (key, val, setTextAreaState, idx, replyAtString=null) => {
     return(<div className="CommentActionView" key={idx}> 

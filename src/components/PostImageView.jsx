@@ -1,7 +1,7 @@
 import React from 'react';
 
 import '../styles/PostImageView.css';
-import testImage from '../TestImage.jpg';
+import testImage from '../TestImage2.jpg';
 
 export const PostImageViewPotrait = (className) => {
         return (
