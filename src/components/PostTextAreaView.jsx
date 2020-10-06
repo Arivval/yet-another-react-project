@@ -32,19 +32,18 @@ class PostTextAreaView extends Component {
         this.textArea.focus();
     }
 
-    componentWillUnmount() {
-        const {getChildRef} = this.props;
-        if (getChildRef) {
-            getChildRef(undefined);
-        }
-    }
-
     onTextAreaChange(event) {
         const textAreaString = event.target.value;
         this.setState({
             textAreaText: textAreaString,
             textAreaEmpty: textAreaString === "",
         });
+        // reset replyCommentID if cleared textArea
+        if (textAreaString === "") {
+            this.setState({
+                replyCommentID: null
+            });
+        }
     }
 
     onKeyDown(event) {
