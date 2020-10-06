@@ -1,7 +1,7 @@
 import React from 'react';
 
 import '../styles/PostImageView.css';
-import testImage from '../TestImage2.jpg';
+import testImage from '../mockdata/TestImage.jpg';
 
 export const PostImageViewPotrait = (className) => {
         return (
@@ -13,8 +13,6 @@ export const PostImageViewPotrait = (className) => {
 
 export const PostImageViewLandscape = (className) => {
     return (
-        <div className="PostImageViewContainerLandscape">
             <img className="PostImageLandscape" src={testImage} alt=''/>                    
-        </div>
     );
 }

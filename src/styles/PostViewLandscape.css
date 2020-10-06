@@ -2,9 +2,8 @@
     background-color: #ffffff;
     margin-top: 50px;
     margin-bottom: 100px;
-    max-width: 900px;
     border: 1px solid #dbdbdb;
-    height: 624px;
+    height: 600px;
 
     display: flex;
     flex-direction: row-reverse;

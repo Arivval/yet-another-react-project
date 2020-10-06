@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import testProfileImage from '../TestProfileImage.jpg';
+import testProfileImage from '../mockdata/TestProfileImage.jpg';
 
 import '../styles/PostTitleView.css';
 
