@@ -7,7 +7,7 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import commentReducer from './reducers/commentReducer';
 import textAreaStateReducer from './reducers/TextAreaStateReducer';
-import { loadFromStore, writeToStore } from './scripts/localStore';
+import { loadFromStore, writeToStore, setMockState } from './scripts/localStore';
 
 const rootReducer = combineReducers({comments: commentReducer, textAreaState: textAreaStateReducer})
 
@@ -16,7 +16,9 @@ let store = null;
 if (prevState) {
   store = createStore(rootReducer, prevState);
 } else {
-  store = createStore(rootReducer);
+  // init with mockState
+  setMockState();
+  store = createStore(rootReducer, loadFromStore());
 }
 
 store.subscribe(() => {
